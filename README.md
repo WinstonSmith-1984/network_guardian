@@ -34,33 +34,47 @@ A real-time network security monitoring dashboard built with Python, Streamlit, 
 
 🛠️ Prerequisites (Linux)
 
-
-
 on a modern Linux system (PEP 668), use the following to bypass environment restrictions or use a virtual environment:  source /home/guest/enp1s0_env/bin/activate
+The instructions are mostly correct and functional, but they are a bit redundant and could be cleaned up to prevent user confusion. Specifically, you are installing some libraries twice (once via pip and once via apt), which can lead to version conflicts.
 
 
-: To run this program, ensure you have the required libraries pre-loaaded in the Os: pip install streamlit pyshark plotly pandas scapy requests.
+🛡️ How to Run Guardian HUD
+1. Install System Dependencies
+
+Before running the script, you must install TShark (the engine behind PyShark) and the Python development headers.
+Bash
 
 sudo apt update
-sudo apt install python3-scapy python3-pyshark python3-plotly python3-pandas python3-requests -y
+sudo apt install tshark python3-pip -y
 
-# Install core dependencies
-source /home/guest/enp1s0_env/bin/activate
-pip install scapy
+(When prompted, select Yes to allow non-superusers to capture packets.)
+2. Prepare the Virtual Environment
 
+Navigate to your environment and activate it. It is cleaner to install your libraries directly into the virtual environment rather than using sudo apt install python3-....
+Bash
 
-Since this program relies on pyshark, (cmd line Wireshark network protocol sniffer) you must have TShark installed:
+# Activate your environment
+source ~/enp1s0_env/bin/activate
 
-sudo apt update && sudo apt install tshark -y
+# Install Python libraries
+pip install streamlit pyshark plotly pandas requests
 
-sudo apt update && sudo apt install python3-scapy -y
+3. Permissions Setup
 
-to run from the cmd terminal:
-sudo ~/enp1s0_env/bin/streamlit run network_guardian.py
+Because pyshark needs to access your network interface directly, it usually requires root privileges. However, streamlit should ideally run from your environment's binary.
 
+Run the app using this command:
+Bash
 
-*(defaults to Wired Ethernet /enp1s0 ) but once in the app, a drop down menu exists to use whatever network interface is available.
-(enp1s0_env) guest@M5-PLUS:$ sudo ~/enp1s0_env/bin/streamlit run ~/network_guardian.py
+sudo ~/enp1s0_env/bin/streamlit run ~/network_guardian.py
+
+4. Access the HUD
+
+Once started, the terminal will display your access URLs:
+
+    Local URL: http://localhost:8501
+
+    Network URL: http://[Your-IP]:8501
 
 
 " You can now view your Streamlit app in your browser" e.g. :
