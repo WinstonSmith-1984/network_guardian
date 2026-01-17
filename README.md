@@ -1,4 +1,4 @@
-for all those targeted individuals under repressive regimes -the "Winston smiths" ) a way to passively monitor their internet connection for signs of bad actor snooping, state or otherwise. 
+for all those targeted individuals under repressive regimes -the "Winston smiths"  a way to passively monitor their internet connection for signs of bad actor snooping, state or otherwise. 
 Developd on Linux: To run this, ensure you have the required libraries: pip install streamlit pyshark plotly pandas requests
 
 
