@@ -3,6 +3,7 @@ Developed on Linux Mint "22.3 (Zena)"
 
 
 A real-time network security monitoring dashboard built with Python, Streamlit, and PyShark. Designed for Linux users to visualize incoming traffic and detect potential threats.
+
 🚀 Key Features
 
     Live Traffic Sniffing: Captures real-time packets using pyshark on specified interfaces.
