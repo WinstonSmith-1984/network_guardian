@@ -35,7 +35,7 @@ A real-time network security monitoring dashboard built with Python, Streamlit, 
 🛠️ Prerequisites (Linux)
 
 on a modern Linux system (PEP 668), use the following to bypass environment restrictions or use a virtual environment:  source /home/guest/enp1s0_env/bin/activate
-The instructions are mostly correct and functional, but they are a bit redundant and could be cleaned up to prevent user confusion. Specifically, you are installing some libraries twice (once via pip and once via apt), which can lead to version conflicts.
+
 
 
 🛡️ How to Run Guardian HUD
