@@ -1,4 +1,3 @@
-
 ```markdown
 # LOTL-LAN 🦀 (v1.9.57)
 
@@ -17,7 +16,7 @@
 * **Active Threat Intelligence**: Automatically analyzes protocol frequency for lateral pivot patterns and escalates alerts to the System Security Status window.
 * **East-West Threat Window**: A dedicated, scrollable log that deduplicates and tracks unique internal connection strings.
 * **Protocol Decoder**: Deep-dive intelligence on discovery protocols used in NTLM relay and spoofing attacks.
-* **Tactical HUD**: Features a 5s stabilized refresh for zero-flicker UI, CSV export for forensic documentation, and a real-time Security Status Grid for ARP and scanning monitoring.
+* **Tactical HUD**: Includes a 5s stabilized refresh for zero-flicker UI, CSV export for forensic documentation, and a real-time Security Status Grid for ARP and scanning monitoring.
 
 ---
 
@@ -32,7 +31,7 @@
 
 ## 📦 Installation & Usage
 
-To deploy the suite, install the system-level packet capture tools, then install the Python dependencies and launch the application with administrative privileges:
+To deploy the suite, install the system-level packet capture tools, install the Python dependencies, and launch the application with administrative privileges:
 
 ```bash
 sudo apt-get install tshark
