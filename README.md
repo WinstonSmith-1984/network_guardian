@@ -1,4 +1,3 @@
-Here is the complete, unified **LOTL-LAN** `README.md` file in one single, continuous block. I have consolidated the installation and contact sections to ensure the file remains a single document without fragmentation.
 
 ```markdown
 # LOTL-LAN 🦀 (v1.9.57)
