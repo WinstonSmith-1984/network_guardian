@@ -4,45 +4,39 @@
 Hi , I'm Derek, a cybersecurity analyst. <a href="https://www.credly.com/badges/270c2310-e8c5-4216-b474-f24ff2d9cec4/public_url" target="_blank"> 🏅</a>  Specialising in developing **Living off the Land (LOTL)** detection and internal network threat intelligence software.
 <a href="mailto:derekconlon&#64;hotmail&#46;co&#46;uk" title="Email">📫</a>
 
-</p>
+# 🦀 LOTL-LAN (v1.9.57)
 
-**LOTL-LAN** is a tactical internal network monitoring and threat intelligence suite designed to detect **Living off the Land** (LOTL) attack vectors within a Local Area Network. By focusing on East-West traffic and protocol-specific anomalies (LLMNR, NBNS, MDNS, ARP), LOTL-LAN provides security analysts with real-time visibility into lateral movement and internal poisoning attempts.
+**LOTL-LAN** (Living Off The Land - Local Area Network) is a real-time internal traffic sniffer and host analyst tool. Unlike traditional firewalls that monitor the perimeter, LOTL-LAN focuses on **East-West traffic**, identifying suspicious lateral movement, protocol abuse, and reconnaissance patterns within your internal network.
+
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)
+![License](https://img.shields.io/badge/License-GPL--3.0-blue?style=for-the-badge)
 
 ---
 
 ## 🚀 Key Features
 
-* **Active Threat Intelligence**: Automatically analyzes protocol frequency for lateral pivot patterns and escalates alerts to the System Security Status window.
-* **East-West Threat Window**: A dedicated, scrollable log that deduplicates and tracks unique internal connection strings.
-* **Protocol Decoder**: Deep-dive intelligence on discovery protocols used in NTLM relay and spoofing attacks.
-* **Tactical HUD**: Includes a 5s stabilized refresh for zero-flicker UI, CSV export for forensic documentation, and a real-time Security Status Grid for ARP and scanning monitoring.
+* **Passive Sniffer Engine**: Utilizes `PyShark` (TShark) to perform live packet capture across any system interface (`eth0`, `wlan0`, etc.).
+* **Lateral Movement Detection**: Automatically flags internal connections (192.168.x.x) to identify potential pivoting or unauthorized internal scans.
+* **Active Threat Tagging**: Allows analysts to manually "tag" suspicious connections to generate deep-dive intelligence reports.
+* **Protocol Intelligence Engine**: Specifically monitors for protocols used in "Living off the Land" attacks, such as **NBNS**, **LLMNR**, and **ARP**.
+* **Visual Telemetry**:
+    * **East-West Threat Window**: A dedicated, high-visibility log for internal-to-internal alerts.
+    * **Dynamic Security Status**: Visual RAG (Red-Amber-Green) alerts that flip from "Secure" to "Alert" when active threats are tagged.
+    * **Protocol Distribution**: Real-time breakdown of network traffic types using Plotly.
+
 
 ---
 
-## 🛠️ Technical Requirements
+## 🛠️ Installation
 
-### Dependencies & System Requirements
-* **Python 3.9+**
-* **Core Libraries**: Streamlit (HUD), PyShark (TShark wrapper), Plotly, and Pandas.
-* **Host Requirements**: TShark (Wireshark) must be installed, and Root/Admin privileges are required for promiscuous mode packet capture.
+### 1. Requirements
+You must have **TShark** (Wireshark's command-line tool) installed on your system for the sniffer engine to function:
+* **Linux**: `sudo apt install tshark`
+* **macOS**: `brew install wireshark`
 
----
-
-## 📦 Installation & Usage
-
-To deploy the suite, install the system-level packet capture tools, install the Python dependencies, and launch the application with administrative privileges:
-
+### 2. Clone & Install
 ```bash
-sudo apt-get install tshark
+git clone [https://github.com/YOUR_USERNAME/lotl-lan.git](https://github.com/YOUR_USERNAME/lotl-lan.git)
+cd lotl-lan
 pip install streamlit pyshark pandas plotly
-streamlit run lotl_lan.py
-
-
-
-```bash
-sudo apt-get install tshark
-pip install streamlit pyshark pandas plotly
-streamlit run lotl_lan.py
-
-
-
