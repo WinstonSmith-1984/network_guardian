@@ -1,48 +1,36 @@
-# LOTL-LAN 🦀 (v1.9.57)
-
-<p align="left">
-
-Hi, I'm Derek, a cybersecurity analyst. 🏅 
-
-I specialise in developing **Living off the Land (LOTL)** detection and  threat intelligence software (dashboards) for internal networks.
-
-### 🛡️ Contact: [![Encrypted Signal](https://img.shields.io/badge/Signal-End--to--End%20Encrypted-blue?style=flat-square&logo=signal&logoColor=white)](https://signal.me/#eu/89vdbTjG9CIOm4P9fsQh11rpyLnOKqhPyLRuyZFcipeOx2P_cyFIHLYrEVWteCPV)
 ---
 
+## 📦 Easy Installation (Standalone Executables)
+Standalone binaries are available for users who want to run **LOTL-LAN** without a full Python environment.
 
-<P>
-
-**LOTL-LAN** (Living Off The Land - Local Area Network) is a real-time internal traffic sniffer and host analyst tool. Unlike traditional firewalls that monitor the perimeter, LOTL-LAN focuses on **East-West traffic**, identifying suspicious lateral movement, protocol abuse, and reconnaissance patterns within your internal network.
-
-![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)
-![License](https://img.shields.io/badge/License-GPL--3.0-blue?style=for-the-badge)
+1. **Prerequisite**: You **must** have TShark installed on your machine for the sniffer to work:
+   - **Windows**: [Download Wireshark](https://www.wireshark.org/download.html) (includes TShark).
+   - **Linux**: `sudo apt install tshark`
+2. **Download the Binary**: Go to the [Releases](https://github.com/YOUR_USERNAME/lotl-lan/releases) page.
+3. **Run**:
+   - **Linux**: `sudo ./lotl-lan-ubuntu`
+   - **Windows**: Run `lotl-lan-windows.exe` as **Administrator**.
 
 ---
 
-## 🚀 Key Features
+## 🛡️ Security & Analyst Notes
 
-* **Passive Sniffer Engine**: Utilizes `PyShark` (TShark) to perform live packet capture across any system interface (`eth0`, `wlan0`, etc.).
-* **Lateral Movement Detection**: Automatically flags internal connections (192.168.x.x) to identify potential pivoting or unauthorized internal scans.
-* **Active Threat Tagging**: Allows analysts to manually "tag" suspicious connections to generate deep-dive intelligence reports.
-* **Protocol Intelligence Engine**: Specifically monitors for protocols used in "Living off the Land" attacks, such as **NBNS**, **LLMNR**, and **ARP**.
-* **Visual Telemetry**:
-    * **East-West Threat Window**: A dedicated, high-visibility log for internal-to-internal alerts.
-    * **Dynamic Security Status**: Visual RAG (Red-Amber-Green) alerts that flip from "Secure" to "Alert" when active threats are tagged.
-    * **Protocol Distribution**: Real-time breakdown of network traffic types using Plotly.
+### 1. Elevated Privileges Required
+Passive network sniffing requires "Promiscuous Mode" access to your network interface.
+* **Linux**: You must use `sudo` to allow the internal `PyShark` engine to bind to the interface.
+* **Windows**: Running as Administrator is required to access the Npcap/WinPcap driver.
 
+### 2. Antivirus & LOTL Flagging
+Because this tool is named **LOTL-LAN** and performs network sniffing, it may be flagged by EDR or Antivirus software as a "Potentially Unwanted Application" (PUA).
+* **Code Integrity**: This project is open-source. We encourage security analysts to audit the code and build their own binaries using the instructions in the `Development` section.
+
+### 3. TShark Pathing
+If the executable cannot find TShark, ensure it is added to your system's `PATH`. On Windows, the default path is usually `C:\Program Files\Wireshark`.
 
 ---
 
-## 🛠️ Installation
-
-### 1. Requirements
-You must have **TShark** (Wireshark's command-line tool) installed on your system for the sniffer engine to function:
-* **Linux**: `sudo apt install tshark`
-* **macOS**: `brew install wireshark`
-
-### 2. Clone & Install
-```bash
-git clone [https://github.com/YOUR_USERNAME/lotl-lan.git](https://github.com/YOUR_USERNAME/lotl-lan.git)
-cd lotl-lan
-pip install streamlit pyshark pandas plotly
+## ⚖️ Disclaimer
+**For Authorized Security Auditing Only.** LOTL-LAN is designed for internal network threat hunting. By using this software, you agree:
+* You have explicit permission to monitor the network traffic you are sniffing.
+* The author is not responsible for any misuse, legal consequences, or network instability caused by this tool.
+* This tool is provided "as is" with no warranty.
